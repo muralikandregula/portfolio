@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murali Kandregula - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: Arial;
+            overflow-x: hidden;
+        }
+
+        #stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        header {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+
+    <header>
+        <h1>Murali Kandregula</h1>
+        <nav>
+            <a href="#about">About</a> | 
+            <a href="#certifications">Certifications</a> | 
+            <a href="#projects">Projects</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Murali Kandregula👋! I'm an aspiring <strong>Data Engineer</strong> passionate about designing scalable data pipelines, optimizing databases, and working with big data technologies like <strong>SQL, Python, Pandas, PySpark, and Cloud Platforms</strong>. Currently, I am refining my skills in data modeling, ETL processes, and real-time analytics. I enjoy solving complex data problems and transforming raw data into meaningful insights.</p>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>Data Analytics Internship Certificate</h3>
+                <p>Deloitte</p>
+            </div>
+            <div class="project-card">
+                <h3>Linux System Administration</h3>
+                <p>Redhat</p>
+            </div>
+            <div class="project-card">
+                <h3>Full Stack Web Development</h3>
+                <p>Acmegrade</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>Predicting Indian GDP Using Machine Learning</h3>
+                <p>Predicting India's GDP using historical economic indicators with ML algorithms.</p>
+            </div>
+            <div class="project-card">
+                <h3>Tableau Dashboard</h3>
+                <p>Interactive Tableau dashboard for complex data visualization.</p>
+            </div>
+            <div class="project-card">
+                <h3>Leaf Disease Detection</h3>
+                <p>ML-based detection of plant leaf diseases using image processing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message" rows="5"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-links" style="margin-top: 20px;">
+            <a href="https://www.linkedin.com/in/murali-kandregula-6a62b8270" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/your-profile" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:chowdarymurali35@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Generate stars
+        const stars = document.getElementById('stars');
+        for(let i = 0; i < 300; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            stars.appendChild(star);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
